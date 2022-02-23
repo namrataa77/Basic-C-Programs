@@ -4,11 +4,20 @@ using namespace std;
 
 int main()
 {
-    char *s;
-    cout<<"Enter the name : ";
-    cin.get(s,50);
+    string str;
+    cout<<"Enter a string : ";
+    getline(cin,str);
+    
+    string::iterator it;
 
-    cout<<s;
+    for(it = str.begin(); it != str.end(); it++)
+    {
+        if( *it >= 65 && *it <= 91 )
+
+            *it = *it + 32;
+    }
+
+    cout<<str<<endl;
 
 
 }
