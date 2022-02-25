@@ -1,23 +1,21 @@
 #include<iostream>
 using namespace std;
 
-int add(int , int );
+int add(int a, int b)
+{
+    int c = a + b;
+    cout<<c;
+}
+
 
 int main()
 {
-    int add();
-    int a,b,z;
+    int x,y;
     cout<<"enter 2 numbers : ";
-    cin>>a>>b;
-   
-    z = add(a,b);
-    cout<<z;
+    cin>>x>>y;
+    
+    add(x,y);
+    
 }
 
-int add()
-{
-    int c;
-    c = a + b;
-    return c;
-}
 
