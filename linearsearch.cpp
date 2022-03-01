@@ -1,19 +1,12 @@
 #include<iostream>
 using namespace std;
 
-int main()
+int linearSearch( int A[], int key);
+
+
+int linearSearch(int A[], int key)
 {
-    int A[10], key, flag = 0;
-    cout<<"Enter 10 numbers : ";
-    for(int i = 0; i < 10; i++)
-    {
-        cin>>A[i];
-    }
-
-    cout<<"\nEnter key value to be searched : ";
-    cin>>key;
-
-        for( int i = 0; i < 10; i++)
+    for( int i = 0; i < 10; i++)
         {
             if( A[i] == key)
             {
@@ -21,6 +14,23 @@ int main()
             return 0;
             }
         }
-        cout<<"Key not found! Try again.";
+        cout<<"key not found! Try again.";
 
+
+}
+
+int main()
+{
+    int A[5];
+    int key;
+    cout<<"Enter an array of integers : ";
+    for(int i=0; i<5; i++)
+    {
+        cin>>A[i];
+    }
+
+    cout<<"Enter the keyber to be searched : ";
+    cin>>key;
+
+    linearSearch(A,key);
 }
