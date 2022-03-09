@@ -16,12 +16,12 @@ int main(){
 
     for( int i=0; i < num.size(); i++){
 
-        for ( int j=0; j < base.size(); j++){
+        for ( int j= base.size(); j >= 0; j--){
             
             if ( base[j] == num[i]){
-
+                
                 base[j] = 0;
-                cout<<j<<endl;
+                                    
                 break;
                 
             } 
