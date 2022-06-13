@@ -2,22 +2,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> add(vector<int> nums){
-    
-    for(int i : nums){
-        nums[i] = nums[i]+1;
-    }
 
-    return nums;
-}
 int main()
 {
-    vector<int> nums = {1,2,3,4,5};
-    add(nums);
-
+    vector<int> nums = {5,6,7,8,9};
     for(int i: nums)
-    cout<<nums[i]<<" ";
-
+    cout<<++i<<" ";
 
     return 0;
 }
