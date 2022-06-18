@@ -17,7 +17,7 @@ void pairSum(vector<int>& a, int k){
 
 int main()
 {
-    vector<int> a = {5,3,8,9,2,4,6,7,1,1,2,3,4};
+    vector<int> a = {5,3,8,9,2,4,6,7,1,1,2,3,45};
     int k = 7;
     pairSum(a,k);
 
