@@ -17,7 +17,7 @@ void reverse(string& str){
         cout<<str[i];
     }
 }
-
+ 
 int main()
 {
     string str = "ahaT sevol atarmaN";
