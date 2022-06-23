@@ -1,2 +1,4 @@
-cout<<"Minimum value : "<<min<<endl;
-    cout<<"Maximum value : "<<max<<endl;
+for(int i=0; i<26; i++){
+    //     if(h[i]>1)
+    //     // printf("%c", i+97);
+    // }
