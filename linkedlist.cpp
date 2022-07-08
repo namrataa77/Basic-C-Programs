@@ -7,6 +7,29 @@ struct node
     struct node *next;
 };
 struct node *first, *last;
+void sortedInsert(int x){
+    struct node *p, *t, *q = NULL;
+    t = new node;
+    t->data = x;
+    p = first;
+    
+    if(first == NULL) first = t;
+    else{
+        while(p && p->data < x){
+            q = p;
+            p = p->next;
+        }
+        if( p == first){
+            t->next = first;
+            first = t;
+        }
+        else{
+        t->next = q->next;
+        q->next = t; }
+        
+    }
+
+}
 void insertLast(int x){
     node *t = new node;
     t->data = x;
@@ -57,11 +80,13 @@ int main()
     // insert(2,4);
     // insert(3,5);
     // insert(4,6);
+    insertLast(1);
+    insertLast(2);
+    insertLast(3);
+    insertLast(4);
+    insertLast(5);
     insertLast(7);
-    insertLast(7);
-    insertLast(7);
-    insertLast(7);
-    insertLast(7);
+    sortedInsert(0);
 
     display();
     return 0;
