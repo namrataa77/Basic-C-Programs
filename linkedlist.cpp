@@ -1,4 +1,5 @@
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct node
@@ -7,6 +8,41 @@ struct node
     struct node *next;
 };
 struct node *first, *last;
+int count (struct node *p){
+    p = first;
+    int x= 0;
+    if(p){
+        x = count(p->next);
+        return x+1;
+    }
+    else return x;
+}
+
+int deleteNode( int index){
+    struct node *q, *p;
+    int x = -1;
+    
+    if(index < 1 || index>count(first))
+    return -1;
+    if(index == 1){
+        q = first;
+        x = first->data;
+        first = first->next;
+        delete q;
+        return x;
+    } 
+    else {
+        for(int i = 0; i < index; i++){
+            p = first;
+            q = p;
+            p = p->next; 
+        }
+        q->next = p->next;
+        x = p->data;
+        delete p;
+        return x;
+    }
+}
 void sortedInsert(int x){
     struct node *p, *t, *q = NULL;
     t = new node;
@@ -86,7 +122,8 @@ int main()
     insertLast(4);
     insertLast(5);
     insertLast(7);
-    sortedInsert(0);
+    // deleteNode(2);
+    cout<<"number of nodes : "<<count(p);
 
     display();
     return 0;
