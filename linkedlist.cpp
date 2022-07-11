@@ -10,12 +10,12 @@ struct node
 struct node *first, *last;
 int count (struct node *p){
     p = first;
-    int x= 0;
-    if(p){
-        x = count(p->next);
-        return x+1;
+    int c= 0;
+    while(p){
+        p = p->next;
+        c++;
     }
-    else return x;
+    return c;
 }
 
 int deleteNode( int index){
@@ -32,8 +32,8 @@ int deleteNode( int index){
         return x;
     } 
     else {
-        for(int i = 0; i < index; i++){
-            p = first;
+        p = first;
+        for(int i = 0; i < index-1; i++){
             q = p;
             p = p->next; 
         }
@@ -122,8 +122,8 @@ int main()
     insertLast(4);
     insertLast(5);
     insertLast(7);
-    // deleteNode(2);
-    cout<<"number of nodes : "<<count(p);
+    cout<<"\n deleted node : "<<deleteNode(4)<<endl;
+    cout<<"\n number of nodes : "<<count(p)<<endl;
 
     display();
     return 0;
