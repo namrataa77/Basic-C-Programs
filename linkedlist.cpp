@@ -9,6 +9,17 @@ struct node
 };
 struct node *first, *last;
 
+int isSorted(struct node* p){
+    p = first;
+    struct node* q;
+    while(p){
+        q = p;
+        p = p->next; 
+        if(q->data > p->data) return 0;
+    }
+    return 1;
+}
+
 int search(struct node *p, int x){
     p = first;
     while(p){
@@ -161,6 +172,7 @@ int main()
     cout<<"\n sum is : "<<sum(p)<<endl;
     cout<<"\n max is : "<<max(p)<<endl;
     cout<<"\n search result: "<<search(p,10)<<endl;
+    cout<<"\n isSorted result : "<<isSorted(p)<<endl;
 
     display();
     return 0;
