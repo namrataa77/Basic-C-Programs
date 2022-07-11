@@ -8,6 +8,40 @@ struct node
     struct node *next;
 };
 struct node *first, *last;
+
+int search(struct node *p, int x){
+    p = first;
+    while(p){
+        if(p->data == x) return 1;
+        p = p->next;
+
+    }
+    return 0;
+}
+
+int max(struct node *p){
+    p = first;
+    int max = p->data;
+    while(p){
+        if(p->data > max){
+            max = p->data;
+        }
+        p = p->next;
+
+    }
+    return max;
+
+}
+
+int sum(struct node *p){
+    p = first;
+    int sum = 0;
+    while(p){
+        sum = sum + p->data;
+        p = p->next;
+    }
+    return sum;
+}
 int count (struct node *p){
     p = first;
     int c= 0;
@@ -118,12 +152,15 @@ int main()
     // insert(4,6);
     insertLast(1);
     insertLast(2);
-    insertLast(3);
-    insertLast(4);
+    insertLast(6);
+    insertLast(10);
     insertLast(5);
     insertLast(7);
-    cout<<"\n deleted node : "<<deleteNode(4)<<endl;
-    cout<<"\n number of nodes : "<<count(p)<<endl;
+    // cout<<"\n deleted node : "<<deleteNode(4)<<endl;
+    // cout<<"\n number of nodes : "<<count(p)<<endl;
+    cout<<"\n sum is : "<<sum(p)<<endl;
+    cout<<"\n max is : "<<max(p)<<endl;
+    cout<<"\n search result: "<<search(p,10)<<endl;
 
     display();
     return 0;
