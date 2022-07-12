@@ -15,12 +15,13 @@ node* sortList(struct node* p){
     while(p){
         q = p;
         p=p->next;
-        if(p->data < q->data){
+        cout<<endl<<q->data<<" "<<p->data;
+        if(p!=NULL && p->data < q->data){
             q->next = p->next;
             p->next = q;
         }
     }
-    return p;
+    return first;
 }
 
 int isSorted(struct node* p){
@@ -185,7 +186,7 @@ int main()
     // cout<<"\n max is : "<<max(p)<<endl;
     // cout<<"\n search result: "<<search(p,10)<<endl;
     // cout<<"\n isSorted result : "<<isSorted(p)<<endl;
-    sortList(p);
     display(p);
+    display(sortList(p));
     return 0;
 }
