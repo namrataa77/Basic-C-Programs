@@ -9,6 +9,20 @@ struct node
 };
 struct node *first, *last;
 
+node* sortList(struct node* p){
+    p = first;
+    struct node* q;
+    while(p){
+        q = p;
+        p=p->next;
+        if(p->data < q->data){
+            q->next = p->next;
+            p->next = q;
+        }
+    }
+    return p;
+}
+
 int isSorted(struct node* p){
     p = first;
     struct node* q;
@@ -144,8 +158,7 @@ void insert(int pos, int x){
         }
     }
 }
-void display(){
-    struct node* ptr;
+void display(struct node* ptr){
    ptr = first;
    while (ptr != NULL) {
       cout<< ptr->data <<" ";
@@ -161,19 +174,18 @@ int main()
     // insert(2,4);
     // insert(3,5);
     // insert(4,6);
-    insertLast(1);
-    insertLast(2);
     insertLast(6);
-    insertLast(10);
+    insertLast(1);
+    insertLast(4);
+    insertLast(3);
     insertLast(5);
-    insertLast(7);
     // cout<<"\n deleted node : "<<deleteNode(4)<<endl;
     // cout<<"\n number of nodes : "<<count(p)<<endl;
-    cout<<"\n sum is : "<<sum(p)<<endl;
-    cout<<"\n max is : "<<max(p)<<endl;
-    cout<<"\n search result: "<<search(p,10)<<endl;
-    cout<<"\n isSorted result : "<<isSorted(p)<<endl;
-
-    display();
+    // cout<<"\n sum is : "<<sum(p)<<endl;
+    // cout<<"\n max is : "<<max(p)<<endl;
+    // cout<<"\n search result: "<<search(p,10)<<endl;
+    // cout<<"\n isSorted result : "<<isSorted(p)<<endl;
+    sortList(p);
+    display(p);
     return 0;
 }
