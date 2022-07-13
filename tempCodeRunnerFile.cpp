@@ -1,1 +1,1 @@
-    // deleteNode(2);
+        // q->next = first1;

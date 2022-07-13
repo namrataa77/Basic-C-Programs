@@ -9,6 +9,8 @@ struct node
 };
 struct node *first, *last;
 
+
+
 node* sortList(struct node* p){
     p = first;
     struct node* q;
@@ -138,6 +140,7 @@ void insertLast(int x){
         last = t;
     }
 }
+
 void insert(int pos, int x){
     node *t, *p;
     if(pos == 0){
@@ -166,6 +169,26 @@ void display(struct node* ptr){
       ptr = ptr->next;
    }
 }
+
+node* reverseList(node* p){
+    vector<int> v;
+    p = first;
+    int i = 0;
+    while(p){
+        v[i] = p->data;
+        p = p->next;
+        i++;
+    }
+    p = first;
+    i--;
+    while(p){
+        p->data = v[i];
+        cout<<" "<<p->data<<" ";
+        p = p->next;
+        
+    }
+    return first;
+}
 int main()
 {
     struct node *p;
@@ -175,11 +198,10 @@ int main()
     // insert(2,4);
     // insert(3,5);
     // insert(4,6);
-    insertLast(6);
     insertLast(1);
-    insertLast(4);
+    insertLast(2);
     insertLast(3);
-    insertLast(5);
+    insertLast(4);
     // cout<<"\n deleted node : "<<deleteNode(4)<<endl;
     // cout<<"\n number of nodes : "<<count(p)<<endl;
     // cout<<"\n sum is : "<<sum(p)<<endl;
@@ -187,6 +209,6 @@ int main()
     // cout<<"\n search result: "<<search(p,10)<<endl;
     // cout<<"\n isSorted result : "<<isSorted(p)<<endl;
     display(p);
-    display(sortList(p));
+    display(reverseList(p));
     return 0;
 }
