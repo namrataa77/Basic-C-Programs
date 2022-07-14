@@ -196,6 +196,8 @@ int main()
     insertLast(2);
     insertLast(3);
     insertLast(4);
+    insertLast(5);
+
     // cout<<"\n deleted node : "<<deleteNode(4)<<endl;
     // cout<<"\n number of nodes : "<<count(p)<<endl;
     // cout<<"\n sum is : "<<sum(p)<<endl;
