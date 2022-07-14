@@ -173,9 +173,9 @@ void display(struct node* ptr){
 void reverseList(node* p){
     p = first;
     struct node* q = NULL, *r = NULL;
-    while(p){
+    while(p){                           //sliding 3 pointers together
     r = q;
-    q = p;
+    q = p; 
     p = p->next;
     q->next = r;
     }
