@@ -165,29 +165,23 @@ void insert(int pos, int x){
 void display(struct node* ptr){
    ptr = first;
    while (ptr != NULL) {
-      cout<< ptr->data <<" ";
+      cout<<endl<< ptr->data <<" ";
       ptr = ptr->next;
    }
 }
 
-node* reverseList(node* p){
-    vector<int> v;
+void reverseList(node* p){
     p = first;
-    int i = 0;
+    struct node* q = NULL, *r = NULL;
     while(p){
-        v[i] = p->data;
-        p = p->next;
-        i++;
+    r = q;
+    q = p;
+    p = p->next;
+    q->next = r;
     }
-    p = first;
-    i--;
-    while(p){
-        p->data = v[i];
-        cout<<" "<<p->data<<" ";
-        p = p->next;
-        
-    }
-    return first;
+    first = q;
+    display(first);
+
 }
 int main()
 {
@@ -209,6 +203,6 @@ int main()
     // cout<<"\n search result: "<<search(p,10)<<endl;
     // cout<<"\n isSorted result : "<<isSorted(p)<<endl;
     display(p);
-    display(reverseList(p));
+    reverseList(p);
     return 0;
 }
