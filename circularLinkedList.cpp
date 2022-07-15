@@ -8,6 +8,7 @@ struct node{
 
 void display(node* p){
     p = head;
+    cout<<endl;
     do{
         cout<<p->data<<" ";
         p = p->next;
@@ -31,32 +32,41 @@ void create(vector<int> A){
     }
 }
 
-void insert(int x, int pos){
+void insert(vector<int> A, int x, int pos){
     struct node* p = head;
     struct node* t;
+    t=new node;
+    t->data = x;
     if(pos == 1){
-        t=new node;
-        t->data = x;
+        
         t->next = head;
         last->next = t;
         head = t;
+    }
+    else if(pos == A.size()){
+        t->next = head;
+        last->next = t;
+        last = t;
+        // int flag = 1;
+        // cout<<endl<<flag;
     }
     else {
     for(int i = 1; i<pos-1; i++){
         p = p->next;
     }
-    t = new node;
-    t->data = x;
+    
     t->next = p->next;
     p->next = t;}
 
     // cout<<endl<<head->data;
 }
 
+
 int main(){
- vector<int> A = {2,3,4,5};
+ vector<int> A = {1,2,3,4,5};
  create(A);
- insert(1,1);
+ insert(A,6,5);
+ insert(A,8,6);
  display(head);
 
 }
