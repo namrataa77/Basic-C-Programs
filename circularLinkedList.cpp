@@ -63,7 +63,7 @@ void insert(vector<int> A, int x, int pos){
 
 
 int main(){
- vector<int> A = {1,2,3,4,5};
+ vector<int> A = {1,2,3,4,5,6};
  create(A);
  insert(A,6,5);
  insert(A,8,6);
