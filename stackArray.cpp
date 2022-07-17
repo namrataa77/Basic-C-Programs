@@ -66,7 +66,7 @@ int isBalanced(char *exp){
 }
 int main()
 {
-    char *exp = "((a+b)*(c+d))";
+    char *exp = "((a+b)*(c+d)/())";
     cout<<isBalanced(exp);
     return 0;
 }
