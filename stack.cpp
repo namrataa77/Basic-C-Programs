@@ -61,7 +61,7 @@ int main()
     stk.push(20);
     stk.push(30);
     stk.display(p);
-    stk.pop();
+    cout<<endl<<"Popped element : "<<stk.pop();
     stk.display(p);
     return 0;
 }
