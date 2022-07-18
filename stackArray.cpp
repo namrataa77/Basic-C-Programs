@@ -63,10 +63,48 @@ int isBalanced(char *exp){
         }
     }
     if(s.top == NULL) return 1;
+    else return 0;
+}
+int isBalanced2(char *exp){
+    Stack s;
+    for(int i=0; exp[i]!='\0'; i++){
+        
+        if((exp[i] == '{') || (exp[i] == '[')||(exp[i] == '('))
+            s.push(exp[i]);
+        
+        else if(exp[i] == ')'){
+            if(s.top == NULL)
+                return 0;
+            if(s.top->data == '(')
+            s.pop();
+            else return 0;
+        }
+        else if(exp[i] == ']'){
+            if(s.top == NULL)
+                return 0;
+            if(s.top->data == '[')
+            s.pop();
+            else return 0;
+        }
+        else if(exp[i] == '}'){
+            
+            if(s.top == NULL){
+                
+                return 0;
+            }
+                
+            if(s.top->data == '{')
+            s.pop();
+            else return 0;
+        }
+        
+    }
+    if(s.top == NULL) return 1;
+    else return 0;
 }
 int main()
 {
-    char *exp = "((a+b)*(c+d)/(a-b))";
-    cout<<isBalanced(exp);
+    char *exp = "{[(a+b)*(c+d)]+(a-b)}}}}";
+    cout<<isBalanced2(exp);
     return 0;
 }
