@@ -1,1 +1,1 @@
-postfix[j] = '\0';
+            cout<<res<<" ";
