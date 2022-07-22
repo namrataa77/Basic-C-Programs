@@ -26,9 +26,12 @@ void push(int x){
 
 void pop(node* p){
     if(front == NULL) cout<<"queue underflow"<<endl;
-    p = front;
-    front = front->next;
-    delete(p);
+    else {
+        p = front;
+        front = front->next;
+        delete(p);
+    }
+  
 }
 
 void display(){
