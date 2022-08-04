@@ -52,6 +52,7 @@ int main()
     insert(8);
     insert(3);
     insert(89);
+    insert(89);
     inorder(root);
     return 0;
 }
