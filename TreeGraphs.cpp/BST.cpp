@@ -12,24 +12,25 @@ void insert(int key){
     if(root == NULL){
         p = new node;
         p->val = key;
-        // cout<<p->val;
         p->rchild = NULL;
         p->lchild = NULL;
         root = p;
     }
     else{
-    while(t){
-        r = t;
-        if(key == t->val) return;
-        else if( key > t->val) t= t->rchild;
-        else t = t->lchild;
+        while(t){
+            r = t;
+            if(key == t->val) return;
+            else if( key > t->val) t= t->rchild;
+            else t = t->lchild;
+        }
+        p = new node;
+        p->val = key;
+        p->rchild = p->lchild = NULL;
+        // cout<<p->val<<" ";
+        if(p->val < r->val) r->lchild = p;
+        else r->rchild = p;
+        
     }
-    p = new node;
-    p->val = key;
-    p->rchild = p->lchild = NULL;
-    // cout<<p->val<<" ";
-    if(p->val < r->val) r->lchild = p;
-    else r->rchild = p;}
 
 }
 
@@ -50,6 +51,7 @@ int main()
     insert(30);
     insert(8);
     insert(3);
+    insert(89);
     inorder(root);
     return 0;
 }
