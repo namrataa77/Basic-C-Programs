@@ -1,4 +1,6 @@
 #include<iostream>
+#include<bits/stdc++.h>
+#include<stack>
 using namespace std;
 
 struct node{
@@ -74,13 +76,13 @@ struct node* Delete(struct node* p, int key){
         return nullptr;
     }
  
-    // if (p->lchild == nullptr && p->rchild == nullptr){
-    //     if (p == root){
-    //         root = nullptr;
-    //     }
-    //     delete p;
-    //     return nullptr;
-    // }
+    if (p->lchild == nullptr && p->rchild == nullptr){
+        if (p == root){
+            root = nullptr;
+        }
+        delete p;
+        return nullptr;
+    }
  
     if (key < p->val){
         p->lchild = Delete(p->lchild, key);
@@ -100,7 +102,44 @@ struct node* Delete(struct node* p, int key){
     return p;
 }
  
-
+void createPre(int* pre, int n){
+    // Create root node
+    int i = 0;
+    root = new node;
+    root->val = pre[i++];
+    root->lchild = nullptr;
+    root->rchild = nullptr;
+    // Iterative steps
+    node* t;
+    node* p = root;
+    stack<node*> stk;
+ 
+    while (i < n){
+        // Left child case
+        if (pre[i] < p->val){
+            t = new node;
+            t->val = pre[i++];
+            t->lchild = nullptr;
+            t->rchild = nullptr;
+            p->lchild = t;
+            stk.push(p);
+            p = t;
+        } else {
+            // Right child cases
+            if (pre[i] > p->val && pre[i] < stk.empty() ? 32767 : stk.top()->val){
+                t = new node;
+                t->val = pre[i++];
+                t->lchild = nullptr;
+                t->rchild = nullptr;
+                p->rchild = t;
+                p = t;
+            } else {
+                p = stk.top();
+                stk.pop();
+            }
+        }
+    }
+}
 
 
 int main()
@@ -116,5 +155,10 @@ int main()
     Delete(root,10);
     cout<<endl;
     inorder(root);
+    cout>>endl;
+    int pre[] = {30,20,10,15,25,40,50,45};
+    int n = sizeof(pre)/sizeof(pre[0]);
+    createPre(pre,n);
+
     return 0;
 }
