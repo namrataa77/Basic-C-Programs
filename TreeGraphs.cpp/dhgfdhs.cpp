@@ -3,15 +3,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> func(vector<vector<int>> &vec, vector<int> &arr){
+vector<int> func(vector<vector<int>> &vec, vector<int> &arr1){
     for(int i = 0; i<vec.size();i++){
         int temp = vec[i][0];
         int temp2 = vec[i][1]+1;
-        reverse(arr.begin()+temp, arr.begin()+temp2);
-        for(auto j: arr)cout<<j<<" ";
+        reverse(arr1.begin()+temp, arr.begin()+temp2);
+        for(auto j: arr1)cout<<j<<" ";
         cout<<endl;
     }
-    return arr;
+    return arr1;
 }
 
 int main()
